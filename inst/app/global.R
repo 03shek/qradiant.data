@@ -549,7 +549,7 @@ load_html2canvas <- function() {
 options(
   radiant.nav_ui =
     list(
-      windowTitle = "Radiant for R",
+      windowTitle = "QIPCM Radiant for R",
       id = "nav_radiant",
       theme = getOption("radiant.theme"),
       inverse = TRUE,
