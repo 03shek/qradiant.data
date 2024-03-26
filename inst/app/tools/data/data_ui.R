@@ -50,7 +50,10 @@ output$ui_data <- renderUI({
         conditionalPanel("input.tabs_data == 'Pivot'", uiOutput("ui_Pivotr")),
         conditionalPanel("input.tabs_data == 'Explore'", uiOutput("ui_Explore")),
         conditionalPanel("input.tabs_data == 'Transform'", uiOutput("ui_Transform")),
-        conditionalPanel("input.tabs_data == 'Combine'", uiOutput("ui_Combine"))
+        conditionalPanel("input.tabs_data == 'Combine'", uiOutput("ui_Combine")),
+
+        #Shek: 20240326 add pivot_wider/pivot_longer option
+        conditionalPanel("input.tabs_data == 'PivotWiderLonger'", uiOutput("ui_pivotWiderLonger"))
       ),
       mainPanel(
         tabsetPanel(
@@ -110,6 +113,13 @@ output$ui_data <- renderUI({
             htmlOutput("cmb_data2"),
             htmlOutput("cmb_possible"),
             htmlOutput("cmb_data")
+          ),
+
+          #Shek: 20240326 add pivot_wider/pivot_longer option
+          tabPanel(
+            "PivotWiderLonger",
+            download_link("dl_pivotwiderlonger_tab"),
+            DT::dataTableOutput("pivotwiderlongerviewer")
           )
         )
       )
